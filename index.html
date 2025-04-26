@@ -153,9 +153,7 @@
     <button onclick="toggle3DContent()" id="showHideButton">Show More 3D Renders</button>
   </div>
 
-  <script>
-    let isMoreVisible = false;
-
+<script>
   function toggle3DContent() {
     const hiddenItems = document.querySelectorAll('.gallery .gallery-item');
     const button = document.getElementById('showHideButton');
@@ -168,11 +166,11 @@
       } else {
         item.classList.add('hidden');
       }
-      
-      // Toggle status
-      isMoreVisible = !isMoreVisible;
-    }
-  </script>
+    });
+
+    button.textContent = isNowShowing ? 'Hide 3D Renders' : 'Show More 3D Renders';
+  }
+</script>
 
 
   <!-- Game Project Section -->
