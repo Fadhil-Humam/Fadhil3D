@@ -75,13 +75,23 @@
     .hidden {
       display: none;
     }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
 
   <header>
     <h1>My Model</h1>
-    <p>The best 3D model i ever made</p>
+    <p>The best 3D model I ever made</p>
   </header>
 
   <section class="section">
@@ -146,21 +156,30 @@
     </div>
   </section>
 
-  <!-- Show More Button -->
+  <!-- Show More/Hide Button -->
   <section class="section">
-    <button onclick="showMore3D()" style="padding: 0.5rem 1rem; font-size: 1rem; border-radius: 8px; background-color: #3b82f6; color: white; border: none; cursor: pointer;">
-      Show More 3D Renders
-    </button>
+    <button onclick="toggle3DContent()" id="showHideButton">Show More 3D Renders</button>
   </section>
 
   <script>
-    function showMore3D() {
-      // Tampilkan semua item yang disembunyikan
+    let isMoreVisible = false;
+
+    function toggle3DContent() {
       const hiddenItems = document.querySelectorAll('.hidden');
-      hiddenItems.forEach(item => item.classList.remove('hidden'));
+      const button = document.getElementById('showHideButton');
       
-      // Sembunyikan tombol setelah klik
-      event.target.style.display = 'none';
+      if (isMoreVisible) {
+        // Sembunyikan item yang ditambahkan
+        hiddenItems.forEach(item => item.classList.add('hidden'));
+        button.textContent = 'Show More 3D Renders';
+      } else {
+        // Tampilkan item yang disembunyikan
+        hiddenItems.forEach(item => item.classList.remove('hidden'));
+        button.textContent = 'Hide 3D Renders';
+      }
+      
+      // Toggle status
+      isMoreVisible = !isMoreVisible;
     }
   </script>
 
