@@ -146,6 +146,12 @@
       <img src="kamar.png" alt="Render 3D Kamar">
       <div class="caption">Render 3D: Ruang Kerja</div>
     </div>
+
+    <div class="gallery-item hidden">
+      <img src="kamar.png" alt="Render 3D Kamar">
+      <div class="caption">Render 3D: Lainnya</div>
+    </div>
+    
   </section>
 
     <!-- Show More/Hide Button -->
@@ -154,22 +160,26 @@
   </div>
 
 <script>
+  let isMoreVisible = false;
+
   function toggle3DContent() {
-    const hiddenItems = document.querySelectorAll('.gallery .gallery-item');
+    const hiddenItems = document.querySelectorAll('.gallery-item.hidden');
     const button = document.getElementById('showHideButton');
-    let isNowShowing = false;
 
     hiddenItems.forEach(item => {
-      if (item.classList.contains('hidden')) {
-        item.classList.remove('hidden');
-        isNowShowing = true;
-      } else {
-        item.classList.add('hidden');
-      }
+      item.style.display = isMoreVisible ? 'none' : 'block';
     });
 
-    button.textContent = isNowShowing ? 'Hide 3D Renders' : 'Show More 3D Renders';
+    button.textContent = isMoreVisible ? 'Show More 3D Renders' : 'Hide 3D Renders';
+
+    isMoreVisible = !isMoreVisible;
   }
+
+  // Saat halaman dimuat, pastikan .hidden tetap disembunyikan
+  window.addEventListener('DOMContentLoaded', () => {
+    const hiddenItems = document.querySelectorAll('.gallery-item.hidden');
+    hiddenItems.forEach(item => item.style.display = 'none');
+  });
 </script>
 
 
