@@ -149,25 +149,24 @@
   </section>
 
     <!-- Show More/Hide Button -->
-  <section class="section">
+  <div style="text-align: center; margin-bottom: 2rem;">
     <button onclick="toggle3DContent()" id="showHideButton">Show More 3D Renders</button>
-  </section>
+  </div>
 
   <script>
     let isMoreVisible = false;
 
-    function toggle3DContent() {
-      const hiddenItems = document.querySelectorAll('.hidden');
-      const button = document.getElementById('showHideButton');
-      
-      if (isMoreVisible) {
-        // Sembunyikan item yang ditambahkan
-        hiddenItems.forEach(item => item.classList.add('hidden'));
-        button.textContent = 'Show More 3D Renders';
+  function toggle3DContent() {
+    const hiddenItems = document.querySelectorAll('.gallery .gallery-item');
+    const button = document.getElementById('showHideButton');
+    let isNowShowing = false;
+
+    hiddenItems.forEach(item => {
+      if (item.classList.contains('hidden')) {
+        item.classList.remove('hidden');
+        isNowShowing = true;
       } else {
-        // Tampilkan item yang disembunyikan
-        hiddenItems.forEach(item => item.classList.remove('hidden'));
-        button.textContent = 'Hide 3D Renders';
+        item.classList.add('hidden');
       }
       
       // Toggle status
