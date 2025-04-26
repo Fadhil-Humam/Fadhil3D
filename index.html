@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Portofolio 3D Saya</title>
+  <title>My Portofolio</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -11,6 +11,7 @@
       color: #f1f5f9;
       margin: 0;
       padding: 0;
+      line-height: 1.6;
     }
     header {
       text-align: center;
@@ -21,12 +22,32 @@
       margin: 0;
       font-size: 2.5rem;
     }
+
+    .section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #38bdf8;
+    }
+
+    .section p {
+      margin-bottom: 1rem;
+    }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
+      gap: 1.5rem;
       padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
     }
+
     .gallery-item {
       background: #1e293b;
       border-radius: 12px;
@@ -34,13 +55,17 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       transition: transform 0.2s ease;
     }
+
     .gallery-item:hover {
       transform: scale(1.03);
     }
+
     .gallery-item img {
       width: 100%;
+      height: auto;
       display: block;
     }
+
     .caption {
       padding: 0.75rem;
       text-align: center;
@@ -51,14 +76,38 @@
 <body>
 
   <header>
-    <h1>Portofolio 3D Saya</h1>
-    <p>Karya terbaik dalam dunia 3D modeling & rendering</p>
+    <h1>My Model</h1>
+    <p>The best 3D model i ever made</p>
   </header>
+
+  <section class="section">
+    <h2>About Me</h2>
+    <p>Hi there! 👋 I'm an aspiring game developer with a growing passion for 2D and 3D art. While I'm still a beginner in 2D vector art, I’m steadily improving and always eager to learn. On the other hand, I’ve honed my skills in 3D modeling, particularly in creating detailed environments and captivating scenes.</p>
+    <p>My work often blends isometric 3D gameplay with 2D sprite aesthetics, creating immersive and visually distinct experiences. I enjoy experimenting with unique mechanics, such as integrating diegetic UI, where the environment itself becomes part of the interface for a seamless and engaging experience.</p>
+    <h2>What I Do</h2>
+    <ul>
+      <li>🎨 Learning 2D Vector Art</li>
+      <li>🎮 Indie Game Developer</li>
+      <li>🏞️ Experienced in 3D Modeling & Environment Design</li>
+    </ul>
+    <p>Let's Connect! I’m always looking to collaborate, exchange ideas, or just chat about game development and art. Check out my projects and feel free to reach out—I’d love to hear from you!</p>
+  </section>
 
   <section class="gallery">
     <div class="gallery-item">
-      <img src="kamar.png" alt="Render 3D Kamar cuy">
+      <img src="kamar.png" alt="Render 3D Kamar">
       <div class="caption">Render 3D: Kamar Minimalis</div>
+    </div>
+
+    <!-- Duplikat ini untuk gambar lain -->
+    <div class="gallery-item">
+      <img src="kamar.png" alt="Render 3D Kamar">
+      <div class="caption">Contoh Lagi</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="kamar.png" alt="Render 3D Kamar">
+      <div class="caption">Dan Lagi 😄</div>
     </div>
   </section>
 
