@@ -7,79 +7,60 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
       margin: 0;
-      padding: 40px;
-      background-color: #3d0000;
-      color: #333;
+      padding: 0;
     }
-
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: #1e293b;
+    }
     h1 {
-      text-align: center;
-      color: #2c3e50;
-      margin-bottom: 10px;
+      margin: 0;
+      font-size: 2.5rem;
     }
-
-    p.intro {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 0 10px;
-      max-width: 1200px;
-      margin: auto;
+      gap: 1rem;
+      padding: 2rem;
     }
-
     .gallery-item {
-      overflow: hidden;
+      background: #1e293b;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      background-color: #fff;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease;
     }
-
     .gallery-item:hover {
       transform: scale(1.03);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
     }
-
     .gallery-item img {
       width: 100%;
       display: block;
     }
-
-    footer {
+    .caption {
+      padding: 0.75rem;
       text-align: center;
-      margin-top: 60px;
-      font-size: 14px;
-      color: #555;
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
-  <h1>HI!, Im Fadhil</h1>
-  <p class="intro">My 3D Project:</p>
 
-  <div class="gallery">
-    <div class="gallery-item">
-      <img src="https://drive.google.com/uc?export=view&id=1vUdHHYXjV9tonwxbfDAqDRZUsEtiqKNU" alt="Karya 3D">
-    </div>
-    <div class="gallery-item">
-      <img src="https://via.placeholder.com/600x400?text=Karya+2" alt="Karya 2">
-    </div>
-    <div class="gallery-item">
-      <img src="https://via.placeholder.com/600x400?text=Karya+3" alt="Karya 3">
-    </div>
-    <div class="gallery-item">
-      <img src="https://via.placeholder.com/600x400?text=Karya+4" alt="Karya 4">
-    </div>
-  </div>
+  <header>
+    <h1>Portofolio 3D Saya</h1>
+    <p>Karya terbaik dalam dunia 3D modeling & rendering</p>
+  </header>
 
-  <footer>
-    alfadhil636@gmail.com
-  </footer>
+  <section class="gallery">
+    <div class="gallery-item">
+      <img src="img/kamar.png" alt="Render 3D Kamar">
+      <div class="caption">Render 3D: Kamar Minimalis</div>
+    </div>
+  </section>
+
 </body>
 </html>
