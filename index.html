@@ -78,6 +78,15 @@
       display: block;
     }
 
+    .gallery-item.hidden {
+      display: none;
+    }
+
+    .gallery-item.shown {
+      display: block; /* agar tetap dalam flow grid */
+    }
+
+
     .game-gallery {
       display: flex;
       gap: 1rem;
@@ -207,8 +216,9 @@
     const button = document.getElementById('showHideButton');
 
     hiddenItems.forEach(item => {
-      item.style.display = isMoreVisible ? 'none' : 'block';
-    });
+  item.classList.toggle('shown', !isMoreVisible);
+  });
+
 
     button.textContent = isMoreVisible ? 'Show More 3D Renders' : 'Hide 3D Renders';
 
