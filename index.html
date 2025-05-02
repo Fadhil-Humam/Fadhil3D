@@ -96,43 +96,38 @@
       font-size: 1rem;
     }
 
-    /* Perbaikan hidden */
     .hidden {
-      visibility: hidden;
-      opacity: 0;
-      height: 0;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      pointer-events: none;
-      transition: all 0.3s ease;
+      display: none;
     }
 
-    .shown {
-      visibility: visible;
-      opacity: 1;
-      height: auto;
-      margin: initial;
-      padding: 0;
-      pointer-events: auto;
-    }
-
-    model-viewer {
-      width: 100%;
-      max-width: 600px;
-      height: 400px;
-      margin: auto;
-      background-color: #1e293b;
-      border-radius: 12px;
-    }
-
-    .model-section {
-      text-align: center;
-      padding: 2rem;
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      cursor: pointer;
     }
   </style>
 
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<style>
+  .model-section {
+    text-align: center;
+    padding: 2rem;
+  }
+
+  model-viewer {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    margin: auto;
+    background-color: #1e293b;
+    border-radius: 12px;
+  }
+</style>
+
 </head>
 <body>
 
@@ -171,7 +166,7 @@
       <div class="caption"></div>
     </div>
 
-    <!-- Hidden items -->
+    <!-- Hidden items that will show up when button is clicked -->
     <div class="gallery-item hidden">
       <img src="cubeworld.png" alt="Render 3D Kamar">
       <div class="caption"></div>
@@ -196,104 +191,106 @@
       <img src="soon.png" alt="Render 3D Kamar">
       <div class="caption"></div>
     </div>
+    
   </section>
 
-  <!-- Show More/Hide Button -->
+    <!-- Show More/Hide Button -->
   <div style="text-align: center; margin-bottom: 2rem;">
     <button onclick="toggle3DContent()" id="showHideButton">Show More 3D Renders</button>
   </div>
 
-  <script>
-    let isMoreVisible = false;
+<script>
+  let isMoreVisible = false;
 
-    function toggle3DContent() {
-      const allItems = document.querySelectorAll('.gallery-item.hidden, .gallery-item.shown');
-      const button = document.getElementById('showHideButton');
+  function toggle3DContent() {
+    const hiddenItems = document.querySelectorAll('.gallery-item.hidden');
+    const button = document.getElementById('showHideButton');
 
-      allItems.forEach(item => {
-        if (item.classList.contains('hidden')) {
-          item.classList.remove('hidden');
-          item.classList.add('shown');
-        } else {
-          item.classList.remove('shown');
-          item.classList.add('hidden');
-        }
-      });
-
-      button.textContent = isMoreVisible ? 'Show More 3D Renders' : 'Hide 3D Renders';
-      isMoreVisible = !isMoreVisible;
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const hiddenItems = document.querySelectorAll('.gallery-item.hidden');
-      hiddenItems.forEach(item => {
-        item.classList.add('hidden');
-        item.classList.remove('shown');
-      });
+    hiddenItems.forEach(item => {
+      item.style.display = isMoreVisible ? 'none' : 'block';
     });
-  </script>
 
-  <!-- Game Project Section -->
-  <section class="section">
-    <h2>Game Project</h2>
-    <div class="game-gallery">
-      <div class="gallery-item">
-        <a href="https://tc1tc.itch.io/fauna-escort" target="_blank" style="text-decoration: none; color: inherit;">
-          <img src="https://img.itch.zone/aW1nLzE4NjU2NjI2LnBuZw==/315x250%23c/70%2BZWP.png" alt="Fauna Escort Cover">
-          <div class="caption">🎮 Fauna Escort</div>
-        </a>
-      </div>
+    button.textContent = isMoreVisible ? 'Show More 3D Renders' : 'Hide 3D Renders';
 
-      <div class="gallery-item">
-        <a href="https://tc1tc.itch.io/angkott" target="_blank" style="text-decoration: none; color: inherit;">
-          <img src="https://img.itch.zone/aW1nLzE3NjE4NjA5LnBuZw==/315x250%23c/avlior.png" alt="Angkott Cover">
-          <div class="caption">🚐 Angkot Tycoon</div>
-        </a>
-      </div>
+    isMoreVisible = !isMoreVisible;
+  }
 
-      <div class="gallery-item">
-        <a href="https://tc1tc.itch.io/angkott" target="_blank" style="text-decoration: none; color: inherit;">
-          <img src="https://i.imgur.com/FvHiMHQ.png" alt="DemitRace Cover">
-          <div class="caption">👹 DemitRace</div>
-        </a>
-      </div>
+  // Saat halaman dimuat, pastikan .hidden tetap disembunyikan
+  window.addEventListener('DOMContentLoaded', () => {
+    const hiddenItems = document.querySelectorAll('.gallery-item.hidden');
+    hiddenItems.forEach(item => item.style.display = 'none');
+  });
+</script>
 
-      <div class="gallery-item">
-        <a href="https://tc1tc.itch.io/angkott" target="_blank" style="text-decoration: none; color: inherit;">
-          <img src="https://i.imgur.com/FvHiMHQ.png" alt="DemitRace Cover">
-          <div class="caption">👹 DemitRace</div>
-        </a>
-      </div>
+
+<!-- Game Project Section -->
+<section class="section">
+  <h2>Game Project</h2>
+  <div class="game-gallery">
+    <!-- Game: Fauna Escort -->
+    <div class="gallery-item">
+      <a href="https://tc1tc.itch.io/fauna-escort" target="_blank" style="text-decoration: none; color: inherit;">
+        <img src="https://img.itch.zone/aW1nLzE4NjU2NjI2LnBuZw==/315x250%23c/70%2BZWP.png" alt="Fauna Escort Cover">
+        <div class="caption">🎮 Fauna Escort</div>
+      </a>
     </div>
-  </section>
 
-  <!-- 3D Model Viewer Section -->
-  <section class="model-section">
-    <h2>3D Model Showcase</h2>
-    <p>My 3D Character!</p>
+    <!-- Game: Angkot -->
+    <div class="gallery-item">
+      <a href="https://tc1tc.itch.io/angkott" target="_blank" style="text-decoration: none; color: inherit;">
+        <img src="https://img.itch.zone/aW1nLzE3NjE4NjA5LnBuZw==/315x250%23c/avlior.png" alt="Angkott Cover">
+        <div class="caption">🚐 Angkot Tycoon</div>
+      </a>
+    </div>
 
-    <model-viewer 
-      src="buto.glb" 
-      camera-controls 
-      auto-rotate 
-      background-color="#0f172a" 
-      environment-image="neutral"
-      exposure="0.25"
-      shadow-intensity="0">
-    </model-viewer>
+    <!-- Game: DemitRace -->
+    <div class="gallery-item">
+      <a href="https://tc1tc.itch.io/angkott" target="_blank" style="text-decoration: none; color: inherit;">
+        <img src="https://i.imgur.com/FvHiMHQ.png" alt="Angkott Cover">
+        <div class="caption">👹 DemitRace</div>
+      </a>
+    </div>
 
-    <br><br>
+    <!-- Game: DemitRace -->
+    <div class="gallery-item">
+      <a href="https://tc1tc.itch.io/angkott" target="_blank" style="text-decoration: none; color: inherit;">
+        <img src="https://i.imgur.com/FvHiMHQ.png" alt="Angkott Cover">
+        <div class="caption">👹 DemitRace</div>
+      </a>
+    </div>
+  </div>
+</section>
 
-    <model-viewer 
-      src="gendruwo.glb" 
-      camera-controls 
-      auto-rotate 
-      background-color="#0f172a" 
-      environment-image="neutral"
-      exposure="0.25"
-      shadow-intensity="0">
-    </model-viewer>
-  </section>
+<!-- 3D Model Viewer Section -->
+<section class="model-section">
+  <h2>3D Model Showcase</h2>
+  <p>My 3D Character!</p>
+
+  <model-viewer 
+    src="buto.glb" 
+    camera-controls 
+    auto-rotate 
+    background-color="#0f172a" 
+    environment-image="neutral"
+    exposure="0.25"
+    shadow-intensity="0"
+    style="width: 100%; height: 500px;">
+  </model-viewer>
+
+  <br><br>
+
+  <model-viewer 
+    src="gendruwo.glb" 
+    camera-controls 
+    auto-rotate 
+    background-color="#0f172a" 
+    environment-image="neutral"
+    exposure="0.25"
+    shadow-intensity="0"
+    style="width: 100%; height: 500px;">
+  </model-viewer>
+</section>
+
 
 </body>
 </html>
