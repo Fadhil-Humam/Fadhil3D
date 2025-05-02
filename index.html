@@ -186,7 +186,7 @@
   scene.add(light);
 
   const loader = new GLTFLoader();
-  loader.load('modelmu.glb', (gltf) => {
+  loader.load('buto.glb', (gltf) => {
     gltf.scene.traverse((child) => {
       if (child.isMesh) {
         child.material = new THREE.MeshBasicMaterial({ color: 0xaaaaaa, wireframe: true });
