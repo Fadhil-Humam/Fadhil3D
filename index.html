@@ -37,8 +37,8 @@
       color: white;
       border: none;
       cursor: pointer;
-      display: inline-block; /* Pastikan tombol berada dalam baris yang sama */
-      margin: 0 auto; /* Untuk menambah jarak otomatis pada kiri dan kanan */
+      display: inline-block;
+      margin: 0 auto;
     }
 
     .section h2 {
@@ -86,7 +86,7 @@
     }
 
     .game-gallery .gallery-item {
-      width: 45%; /* setengah kurang dikit biar ada gap */
+      width: 45%;
       max-width: 300px;
     }
 
@@ -110,6 +110,24 @@
       cursor: pointer;
     }
   </style>
+
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<style>
+  .model-section {
+    text-align: center;
+    padding: 2rem;
+  }
+
+  model-viewer {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    margin: auto;
+    background-color: #1e293b;
+    border-radius: 12px;
+  }
+</style>
+
 </head>
 <body>
 
@@ -233,6 +251,13 @@
   </div>
 </section>
 
+<!-- 3D Model Viewer Section -->
+<section class="model-section">
+  <h2>3D Model Showcase</h2>
+  <p>Berikut salah satu model 3D buatan saya, silakan putar dan zoom sesuka hati!</p>
+
+  <model-viewer src="buto.glb" alt="My 3D Model" auto-rotate camera-controls ar></model-viewer>
+</section>
 
 </body>
 </html>
