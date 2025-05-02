@@ -66,6 +66,16 @@
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       transition: transform 0.2s ease;
+      opacity: 1;
+      max-height: 1000px;
+      transition: opacity 0.5s ease, max-height 0.5s ease;
+      overflow: hidden;
+    }
+
+    .gallery-item.hidden {
+      opacity: 0;
+      max-height: 0;
+      pointer-events: none;
     }
 
     .gallery-item:hover {
@@ -166,6 +176,11 @@
       <div class="caption"></div>
     </div>
 
+    <div class="gallery-item">
+      <img src="island.png" alt="Render 3D Kamar">
+      <div class="caption"></div>
+    </div>
+
     <!-- Hidden items that will show up when button is clicked -->
     <div class="gallery-item hidden">
       <img src="cubeworld.png" alt="Render 3D Kamar">
@@ -203,24 +218,30 @@
   let isMoreVisible = false;
 
   function toggle3DContent() {
-    const hiddenItems = document.querySelectorAll('.gallery-item.hidden');
+    const hiddenItems = document.querySelectorAll('.gallery-item.hidden, .gallery-item:not(.hidden)');
     const button = document.getElementById('showHideButton');
 
     hiddenItems.forEach(item => {
-      item.style.display = isMoreVisible ? 'none' : 'block';
+      if (item.classList.contains('hidden')) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
     });
 
     button.textContent = isMoreVisible ? 'Show More 3D Renders' : 'Hide 3D Renders';
-
     isMoreVisible = !isMoreVisible;
   }
 
-  // Saat halaman dimuat, pastikan .hidden tetap disembunyikan
+  // Saat halaman dimuat, pastikan semua .hidden disembunyikan
   window.addEventListener('DOMContentLoaded', () => {
     const hiddenItems = document.querySelectorAll('.gallery-item.hidden');
-    hiddenItems.forEach(item => item.style.display = 'none');
+    hiddenItems.forEach(item => {
+      item.classList.add('hidden');
+    });
   });
 </script>
+
 
 
 <!-- Game Project Section -->
